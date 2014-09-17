@@ -1,8 +1,32 @@
-div#grid {
-	width: 100px;
-	height: 100px;
+div.grid {
 	background-color: white;
 	margin: 0px;
-	border: none;
 	display: inline-block;
+	border: none;
+}
+
+div.container {
+	width: 1000px;
+	height: 1000px;
+	margin: 10px auto 10px auto;
+	border: none;
+}
+
+button {
+	font-family: Georgia;
+	margin: 20px auto 20px auto;
+	display: block;
+	border-radius: 15px;
+	height: 30px;
+	width: 200px;
+	box-shadow: 2px 2px 2px #a8a8a8;
+	background-color: white;
+}
+
+button:hover{
+	background-color: #a8a8a8;
+}
+
+body {
+	background: #3f3f3f;
 }
