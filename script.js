@@ -16,7 +16,7 @@ function clearSquares() {
 }
 
 function createSquares(numSquares) {
-	var edgeLen = 1000/numSquares;
+	var edgeLen = Math.floor(1000/numSquares);
 	var count = 0;
 	for (var $i = 0; $i < numSquares; $i++) {
 		for (var $j = 0; $j < numSquares; $j++) {
