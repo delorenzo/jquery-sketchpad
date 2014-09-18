@@ -5,11 +5,63 @@ div.grid {
 	border: none;
 }
 
-div.container {
-	width: 1000px;
+div.main-container {
+	width: 1100px;
 	height: 1000px;
 	margin: 10px auto 10px auto;
 	border: none;
+}
+
+div.sketchpad-container {
+	width: 1000px;
+	height: 1000px;
+	border: none;
+	float: left;
+	margin: 0px auto 0px auto;
+	display: inline-block;
+}
+
+div.color-container {
+	width: 40px;
+	height: 200px;
+	margin-right: 20px;
+	float: left;
+}
+
+div.color {
+	width: 20px;
+	height: 20px;
+	display: block;
+	margin: 10px;
+	border-radius: 100%;
+}
+
+div.color:hover {
+	cursor: hand;
+}
+
+div#red {
+	background-color: red;
+}
+
+div#yellow {
+	background-color: yellow;
+}
+
+div#blue {
+	background-color: blue;
+}
+
+div#black {
+	background-color: black;
+}
+
+div#white {
+	background-color: white;
+}
+
+div#gray {
+	background-color: #a8a8a8;
 }
 
 button {
@@ -29,4 +81,11 @@ button:hover{
 
 body {
 	background: #3f3f3f;
+
+	/* disable highlighting */
+	-webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
 }

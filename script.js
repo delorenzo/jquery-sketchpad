@@ -1,5 +1,7 @@
 var opacity = [];
 var timeout;
+var mouseDown = false;
+var currentColor;
 
 function clearSquares() {
 	//clear grid
@@ -18,50 +20,41 @@ function createSquares(numSquares) {
 	var count = 0;
 	for (var $i = 0; $i < numSquares; $i++) {
 		for (var $j = 0; $j < numSquares; $j++) {
-			$(".container").append("<div class='grid' id='" + count + "'></div>");
+			$(".sketchpad-container").append("<div class='grid' id='" + count + "'></div>");
 			count++;
 			opacity[count] = 0;
 		}
-		$(".container").append("<br/>");
+		$(".sketchpad-container").append("<br/>");
 	}
 	$(".grid").width(edgeLen);		
 	$(".grid").height(edgeLen);
 }
 
 $(document).ready(function() {
+	currentColor = "#a8a8a8";
 	createSquares(64);
 
-	$("button").click(function() {
+	$("button#new").click(function() {
 		var $numSquares = prompt("How many squares per side do you want the new grid to be?");
 		clearSquares($numSquares);
 		createSquares($numSquares);
 	});
-});
 
-$(document).on('mouseenter', '.grid', function() {
-	//opacity[this.id] += 0.10;
-	$(this).css("background-color", "#a8a8a8");
-});
-
-/*$(document).on('mousedown', '.grid', function() {
-	$(".grid").mouseenter(function() {
-			$(this).css("background-color", "#a8a8a8");
+	$(document).mousedown(function() {
+		mouseDown = true;
+	})
+	.mouseup(function() {
+		mouseDown = false;
 	});
-	timeout = setInterval(function() {
-		$(".grid").mouseenter(function() {
-			$(this).css("background-color", "#a8a8a8");
-		});
-	}, 500);
 
-	return false;
+	$(".color").click(function() {
+		currentColor = this.id;
+	});
 });
 
-$(document).mouseup(function() {
-	clearInterval(timeout);
-	return false;
+$(document).on('mouseover', '.grid', function() {
+	//opacity[this.id] += 0.10;
+	if (mouseDown) {
+		$(this).css("background-color", currentColor);
+	}
 });
-
-$(document).on('mouseout', '.container', function() {
-	clearInterval(timeout);
-	return false;
-});*/
